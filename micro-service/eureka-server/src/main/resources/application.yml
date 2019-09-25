@@ -1,0 +1,22 @@
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    appname: eureka-server
+
+  client:
+      service-url:
+        #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+         defaultZone: http://localhost:8762/eureka/,http://localhost:8763/eureka/
+
+      #是否向服务注册中心注册自己
+      register-with-eureka: false
+      #是否检索服务
+      fetch-registry: false
+      # 续期时间，即扫描失效服务的间隔时间（缺省为60*1000ms）
+  server:
+    #关闭自我保护
+    enable-self-preservation: false
+
+    eviction-interval-timer-in-ms: 1000
